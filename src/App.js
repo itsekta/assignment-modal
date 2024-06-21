@@ -19,12 +19,21 @@ const App = () => {
       }
     };
 
+    const handleEscapeKey = (event) => {
+      if (event.key === "Escape") {
+        setFormVisible(false);
+      }
+    };
+
     document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("keydown", handleEscapeKey);
 
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("keydown", handleEscapeKey);
     };
   }, []);
+
   const openForm = () => {
     setFormVisible(true);
   };
